@@ -67,12 +67,81 @@ void main_ui(void)
 	GUI_DrawRoundedFrame(2,2,180,20,5,2);
 
 }
+void gui_disp_dec(void)
+{
+	GUI_DispStringAt("GUI_DispStringAt()",0,20);
+	GUI_DispDec(123,4);
+	GUI_DispString("   ");
+	GUI_DispDec(-123,4);
+	
+	GUI_DispStringAt("GUI_DispDecAt()",0,35);
+	GUI_DispDecAt(100,100,35,3);
+	GUI_DispDecAt(-564,130,35,4);
+	
+	GUI_DispStringAt("GUI_DispDecShift(): ", 0, 50);
+	GUI_DispDecShift(1236,5,2);
+	GUI_DispString("   ");
+	GUI_DispDecShift(-1236, 6, 2);
+	GUI_DispStringAt("GUI_DispDecSpace(): ", 0, 65);
+	GUI_DispDecSpace(3265,5);
+	GUI_DispStringAt("GUI_DispSDec():     ", 0, 80);
+	GUI_DispSDec(200,4);
+	GUI_DispStringAt("GUI_DispSDecShift():     ", 0, 95);
+	GUI_DispSDecShift(12345,7,3);
+}
+void gui_disp_float(void)
+{
+	float f = 123.45678;
+	GUI_DispStringAt("GUI_DispFloat():\n", 0, 20);
+	GUI_DispFloat(f, 9);
+	GUI_GotoX(100);
+	GUI_DispFloat(-f, 9);
+	GUI_DispStringAt("GUI_DispFloatFix():\n", 0, 45);
+	GUI_DispFloatFix(f, 9, 2);
+	GUI_GotoX(100);
+	GUI_DispFloatFix(f, 9, 2);
+	GUI_DispStringAt("GUI_DispSFloatFix():\n", 0, 70);
+	GUI_DispSFloatFix(f, 9, 2);
+	GUI_GotoX(100);
+	GUI_DispSFloatFix(-f, 9, 2);
+	GUI_DispStringAt("GUI_DispFloatMin():\n", 0, 95);
+	GUI_DispFloatMin(f, 3);
+	GUI_GotoX(100);
+	GUI_DispFloatMin(-f, 3);
+	GUI_DispStringAt("GUI_DispSFloatMin():\n", 0, 120);
+	GUI_DispSFloatMin(f, 3);
+	GUI_GotoX(100);
+	GUI_DispSFloatMin(-f, 3);
+}
+void gui_disp_bin_hex(void)
+{
+	int dec = 20;
+	char* emwinversion;
+	GUI_DispStringAt("GUI_DispBin():      ",0,20);
+	GUI_DispBin(dec,6);
+	GUI_DispStringAt("GUI_DispBinAt():  ", 0, 35);
+	GUI_DispBinAt(dec,87,35,6);
+	//???????? API ????
+	GUI_DispStringAt("GUI_DispHex():     ", 0, 50);
+	GUI_DispHex(dec,2);
+	GUI_DispStringAt("GUI_DispHexAt(): ", 0, 65);
+	GUI_DispHexAt(dec, 87,65,2);
 
+	emwinversion = (char*)GUI_GetVersionString();    //???? emwin ???
+GUI_DispStringAt(emwinversion,200,100);    //?? emwin ???
+}
+void gui_num_disp(void)
+{
+//	gui_disp_dec();
+//	gui_disp_float();
+	gui_disp_bin_hex();
+
+}
 int main(void)
 {
 	BSP_Init();
 //	main_ui();
-
+	gui_num_disp();
 	OSInit();
 	OSTaskCreate(start_task,(void *)0,(OS_STK *)&START_TASK_STK[START_STK_SIZE-1],START_TASK_PRIO);//创建起始任务
 	OSStart();

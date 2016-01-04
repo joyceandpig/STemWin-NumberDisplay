@@ -10,11 +10,50 @@ Project File Date:  01/04/2016
 Build target 'STemWin'
 compiling main.c...
 linking...
-Program Size: Code=84794 RO-data=10038 RW-data=932 ZI-data=41988  
+Program Size: Code=87274 RO-data=10094 RW-data=940 ZI-data=41988  
 FromELF: creating hex file...
 "..\OBJ\MALLOC.axf" - 0 Error(s), 0 Warning(s).
-: Error: L6218E: Undefined symbol GUI_Text_Disp (referred from main.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 1 error messages.
-"..\OBJ\MALLOC.axf" - 1 Error(s), 1 Warning(s).
-Target not created
+Load "..\\OBJ\\MALLOC.axf" 
+Set JLink Project File to "G:\GitHub\STemWin-NumberDisplay\STemWin-uCOSII\USER\JLinkSettings.ini"
+* JLink Info: Device "STM32F103RC" selected (256 KB flash, 48 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.80g, compiled Feb 13 2014 20:50:02
+Firmware: J-Link ARM V8 compiled Nov 25 2013 19:20:08
+Hardware: V8.00
+S/N : 17935099 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F103RC
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 1, TDO: 1, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+s running
+***JLink Error: Can not read register 1 (R1) while CPU is running
+***JLink Error: Can not read register 2 (R2) while CPU is running
+***JLink Error: Can not read register 3 (R3) while CPU is running
+***JLink Error: Can not read register 4 (R4) while CPU is running
+***JLink Error: Can not read register 5 (R5) while CPU is running
+Programming Done.
+Verify OK.
+Application running ...
